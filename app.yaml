@@ -1,0 +1,26 @@
+# Google App Engine Standard — Node.js 20 + Next.js
+# https://cloud.google.com/appengine/docs/standard/nodejs/runtime
+
+runtime: nodejs20
+env: standard
+
+instance_class: F2
+
+automatic_scaling:
+  min_instances: 0
+  max_instances: 5
+
+# Folosește doar scriptul gcp-build pentru compilare (evită dublarea cu `npm run build`).
+build_env_variables:
+  GOOGLE_NODE_RUN_SCRIPTS: ""
+
+# După build, App Engine păstrează doar `dependencies` în runtime.
+# În timpul gcp-build sunt disponibile și devDependencies (TypeScript, Tailwind, etc.).
+
+# Înlocuiește valorile de mai jos. Pe App Engine NU seta GOOGLE_APPLICATION_CREDENTIALS —
+# se folosește automat contul de serviciu al aplicației (App Engine default SA).
+env_variables:
+  GCP_PROJECT_ID: studybuddy-492015
+  GCP_BUCKET_NAME: studybuddy1
+  SPEECH_LANGUAGE_CODE: "en-US"
+  TTS_VOICE_NAME: "en-US-Neural2-F"

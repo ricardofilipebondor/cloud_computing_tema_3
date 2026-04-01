@@ -1,0 +1,11 @@
+# Speed up uploads — App Engine runs npm install + gcp-build on Google’s builders
+.gcloudignore
+.git
+.gitignore
+.cursor
+*.md
+.env
+.env.*
+!.env.example
+node_modules/
+.next/cache
